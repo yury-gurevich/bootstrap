@@ -1,7 +1,8 @@
-from ssl import HAS_TLSv1_1
-from flask import Flask
-from flask import render_template
+# /usr/bin/python3
 
+from ssl import HAS_TLSv1_1
+
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
