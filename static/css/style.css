@@ -5,13 +5,3 @@ body {
     align-content: flex-end;
     color: crimson;
 }
-
-.form-control {
-    background-color: azure;
-}
-
-.btn {
-
-    border: 4px white;
-
-}
