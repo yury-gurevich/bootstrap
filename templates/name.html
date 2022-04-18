@@ -2,14 +2,32 @@
 
 {% block content %}
 
+{% for message in get_flashed_messages() %}
+<div class="col-3 alert alert-dark alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
 
 {% if name %}
 <h1>Hello {{ name | title }}</h1>
+<br>
+<div class="col-12">
+    <img class="img-flud col-12" src="{{ url_for( 'static', filename='images/NorthPeak.jpg') }}">
+</div>
+<br>
+<br>
+<!-- /home/yury/projects/bootstrap/static/js/MyFile.js -->
+<div>
+   <p id="demo"> this is stuff....</p>
+   <script src="{{ url_for( 'static' , filename='js/MyFile.js') }}"></script>
+</div>
+
 {% else%}
 <h1>What is your name?</h1>
 <br>
 <form method="POST">
-    <div>
+    <div class="col-12">
         {{ form.hidden_tag() }}
         <div class="col-12">
             {{ form.name.label(class="form-label") }}

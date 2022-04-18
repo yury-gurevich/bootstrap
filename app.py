@@ -1,16 +1,38 @@
 # /usr/bin/python3
 
+import os
 from crypt import methods
+from datetime import datetime
+from enum import unique
 from ssl import HAS_TLSv1_1
 
-from flask import Flask, render_template
+from flask import Flask, flash, render_template
+from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = "my secret key"
+# secret_key = os.urandom(24)
+app.config['SECRET_KEY'] = os.urandom(24)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+
+# Initialise Database
+db = SQLAlchemy(app)
+
+
+# Create Model
+class Users(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(200), nullable=False)
+    email = db.Column(db.String(200), nullable=False, unique=True)
+    date_added = db.Column(db.Date, default=datetime.utcnow)
+
+    def __repr__(self):
+        return '<Name %r>' % self.name
 
 
 class NameForm(FlaskForm):
@@ -36,6 +58,7 @@ def name():
     if form.validate_on_submit():
         name = form.name.data
         form.name.data = ""
+        flash("form submitted successfully")
 
     return render_template("name.html", name=name, form=form)
 
