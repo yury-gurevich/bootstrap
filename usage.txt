@@ -1,3 +1,5 @@
 1. Start Terminal
 2. Start Python
-3. Import 
+3. type 'from app import db'
+4. type 'db.create_all()'
+5. exit python - db will be created and initialised with empty tables

@@ -3,7 +3,7 @@
 {% block content %}
 
 {% for message in get_flashed_messages() %}
-<div class="col-3 alert alert-dark alert-dismissible fade show" role="alert">
+<div class="col-10 alert alert-dark alert-dismissible fade show" role="alert">
     {{ message }}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
@@ -13,11 +13,10 @@
 <h1>Hello {{ name | title }}</h1>
 <br>
 <div class="col-12">
-    <img class="img-flud col-12" src="{{ url_for( 'static', filename='images/NorthPeak.jpg') }}">
+    <img  id='backgrnd' class="img-flud col-12 border-0" src="{{ url_for( 'static', filename='images/NorthPeak.jpg') }}" alt="The image">
 </div>
 <br>
 <br>
-<!-- /home/yury/projects/bootstrap/static/js/MyFile.js -->
 <div>
    <p id="demo"> this is stuff....</p>
    <script src="{{ url_for( 'static' , filename='js/MyFile.js') }}"></script>
