@@ -10,17 +10,18 @@
 {% endfor %}
 
 {% if name %}
-<h1>Hello {{ name | title }}</h1>
-<br>
+<!-- <h1>Hello {{ name | title }}</h1> -->
+<!-- <br> -->
 <div class="col-12">
-    <img  id='backgrnd' class="img-flud col-12 border-0" src="{{ url_for( 'static', filename='images/NorthPeak.jpg') }}" alt="The image">
+    <img id='backgrnd' class="img-flud col-12 border-0" src="{{ url_for( 'static', filename='images/NorthPeak.jpg') }}"
+        alt="The image">
 </div>
-<br>
-<br>
-<div>
-   <p id="demo"> this is stuff....</p>
-   <script src="{{ url_for( 'static' , filename='js/MyFile.js') }}"></script>
-</div>
+<!-- <br> -->
+<!-- <br> -->
+<!-- <div> -->
+    <!-- <p id="demo"> this is stuff....</p> -->
+    <!-- <script src="{{ url_for( 'static' , filename='js/MyFile.js') }}"></script> -->
+<!-- </div> -->
 
 {% else%}
 <h1>What is your name?</h1>

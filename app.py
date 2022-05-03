@@ -1,16 +1,17 @@
 # /usr/bin/python3
 
 import os
-from crypt import methods
+# from crypt import methods
 from datetime import datetime
-from enum import unique
-from ssl import HAS_TLSv1_1
 
 from flask import Flask, flash, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
+
+# from enum import unique
+# from ssl import HAS_TLSv1_1
 
 app = Flask(__name__)
 
